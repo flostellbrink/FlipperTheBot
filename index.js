@@ -3,14 +3,7 @@
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
-const tg = new Telegram.Telegram('319892880:AAF6oY-0KsysbDAbaZbpm_nUf2kUME3zHqU',
-    {
-        webAdmin: {
-            port: process.env.PORT || 5000,
-            host: 'localhost'
-        }
-    }
-)
+const tg = new Telegram.Telegram('319892880:AAF6oY-0KsysbDAbaZbpm_nUf2kUME3zHqU')
 
 function printCommands($) {
     $.sendMessage('/toss - Tosses a coin')
