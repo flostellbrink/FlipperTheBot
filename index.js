@@ -20,7 +20,7 @@ class StartController extends TelegramBaseController {
     startHandler($) {
         $.sendMessage(
             'Welcome to owl nation! Have a look at the available commands:\n'
-            + getCommands)
+            + getCommands())
     }
 
     get routes() {
