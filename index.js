@@ -3,16 +3,16 @@
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
-const tg = new Telegram.Telegram('319892880:AAF6oY-0KsysbDAbaZbpm_nUf2kUME3zHqU', {
+const tg = new Telegram.Telegram(process.env.telegramToken, {
     webhook: {
-        url: 'https://flo-bot.herokuapp.com',
+        url: process.env.publicUrl,
         port: process.env.PORT || 3000,
         host: '0.0.0.0'
     }
 })
 
 function getCommands() {
-    return '/start - Show commands\n'
+    return '/start - Show commands\n\n'
         + '/toss - Tosses a coin'
 }
 
