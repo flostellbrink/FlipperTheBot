@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Owlinated/flo-bot#readme",
   "dependencies": {
+    "express": "^4.14.0",
     "telegram-node-bot": "^4.0.5"
   }
 }
