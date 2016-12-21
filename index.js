@@ -12,14 +12,14 @@ const tg = new Telegram.Telegram(process.env.telegramToken, {
 })
 
 function getCommands() {
-    return '/start - Show commands\n\n'
+    return '/start - Show commands\n'
         + '/toss - Tosses a coin'
 }
 
 class StartController extends TelegramBaseController {
     startHandler($) {
         $.sendMessage(
-            'Welcome to owl nation! Have a look at the available commands:\n'
+            'Welcome to owl nation! Have a look at the available commands:\n\n'
             + getCommands())
     }
 
