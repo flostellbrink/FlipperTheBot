@@ -7,7 +7,7 @@ const tg = new Telegram.Telegram('319892880:AAF6oY-0KsysbDAbaZbpm_nUf2kUME3zHqU'
     webhook: {
         url: 'https://flo-bot.herokuapp.com',
         port: process.env.PORT || 3000,
-        host: 'localhost'
+        host: '0.0.0.0'
     }
 })
 
