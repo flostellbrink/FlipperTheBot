@@ -1,21 +1,17 @@
 'use strict'
 
-var express = require('express');
-var app     = express();
-app.set('port', (process.env.PORT || 5000));
-
+const express = require('express');
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
 const tg = new Telegram.Telegram('319892880:AAF6oY-0KsysbDAbaZbpm_nUf2kUME3zHqU')
 
 //For avoidong Heroku $PORT error
-app.get('/', function(request, response) {
-    var result = 'App is running'
-    response.send(result);
-}).listen(app.get('port'), function() {
-    console.log('App is running, server is listening on port ', app.get('port'));
-});
+express().get('/', function(request, response) {
+    response.send('App is running');
+}).listen(process.env.PORT || 5000, function() {
+    console.log('App is running, server is listening on port ', process.env.PORT || 5000);
+}).on('error', function(err) { });;
 
 function printCommands($) {
     $.sendMessage('/toss - Tosses a coin')
