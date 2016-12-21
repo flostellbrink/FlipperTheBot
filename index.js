@@ -1,26 +1,26 @@
 'use strict'
 
-const express = require('express');
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
-const tg = new Telegram.Telegram('319892880:AAF6oY-0KsysbDAbaZbpm_nUf2kUME3zHqU')
+const tg = new Telegram.Telegram('319892880:AAF6oY-0KsysbDAbaZbpm_nUf2kUME3zHqU', {
+    webhook: {
+        url: 'https://flo-bot.herokuapp.com',
+        port: process.env.PORT || 3000,
+        host: 'localhost'
+    }
+})
 
-//For avoidong Heroku $PORT error
-express().get('/', function(request, response) {
-    response.send('App is running');
-}).listen(process.env.PORT || 5000, function() {
-    console.log('App is running, server is listening on port ', process.env.PORT || 5000);
-}).on('error', function(err) { });;
-
-function printCommands($) {
-    $.sendMessage('/toss - Tosses a coin')
+function getCommands() {
+    return '/start - Show commands\n'
+        + '/toss - Tosses a coin'
 }
 
 class StartController extends TelegramBaseController {
     startHandler($) {
-        $.sendMessage('Welcome to owl nation! Have a look at the available commands:')
-        printCommands($)
+        $.sendMessage(
+            'Welcome to owl nation! Have a look at the available commands:\n'
+            + getCommands)
     }
 
     get routes() {
