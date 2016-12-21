@@ -5,31 +5,31 @@ const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
 const tg = new Telegram.Telegram('319892880:AAF6oY-0KsysbDAbaZbpm_nUf2kUME3zHqU')
 
+function printCommands($) {
+    $.sendMessage('/toss - Tosses a coin')
+}
+
 class StartController extends TelegramBaseController {
     startHandler($) {
         $.sendMessage('Welcome to owl nation! Have a look at the available commands:')
         printCommands($)
     }
 
-    function printCommands($) {
-        $.sendMessage('/toss - Tosses a coin')
-    }
-
     get routes() {
         return {
             'startCommand': 'startHandler'
-            'unknownCommand': 'unknownHandler'
         }
     }
 }
 
+function coinFlip() {
+    return (Math.floor(Math.random() * 2) == 0) ? 'heads' : 'tails'
+}
+
 class RandomController extends TelegramBaseController {
-    function coinFlip() {
-        return (Math.floor(Math.random() * 2) == 0) ? 'heads' : 'tails'
-    }
 
     tossHandler($) {
-        $.sendMessage('Tossing a coin. Its ' + coinFlip())
+        $.sendMessage('Tossing a coin. Its ' + coinFlip() + '!')
     }
 
     get routes() {
