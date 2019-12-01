@@ -35,9 +35,10 @@ function coinFlip() {
 }
 
 class RandomController extends TelegramBaseController {
-
     flipHandler($) {
-        $.sendMessage('Flipping a coin. Its ' + coinFlip() + '!')
+        const result = coinFlip();
+        $.sendPhoto({ path: `res/${result}.png` })
+        $.sendMessage(`Flipping a coin. Its ${result}!`)
     }
 
     get routes() {
