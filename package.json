@@ -1,7 +1,7 @@
 {
-  "name": "flo-bot",
+  "name": "flipper-the-bot",
   "version": "1.0.0",
-  "description": "telegram bot",
+  "description": "Telegram Bot. Flips Coins.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Owlinated/flo-bot.git"
+    "url": "git+https://github.com/flostellbrink/FlipperTheBot.git"
   },
   "author": "florian stellbrink",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Owlinated/flo-bot/issues"
+    "url": "https://github.com/flostellbrink/FlipperTheBot/issues"
   },
-  "homepage": "https://github.com/Owlinated/flo-bot#readme",
+  "homepage": "https://github.com/flostellbrink/FlipperTheBot#readme",
   "dependencies": {
     "telegram-node-bot": "^4.0.5"
   }

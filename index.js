@@ -13,13 +13,13 @@ const tg = new Telegram.Telegram(process.env.telegramToken, {
 
 function getCommands() {
     return '/start - Show commands\n'
-        + '/toss - Tosses a coin'
+        + '/flip - Flips a coin'
 }
 
 class StartController extends TelegramBaseController {
     startHandler($) {
         $.sendMessage(
-            'Welcome to owl nation! Have a look at the available commands:\n\n'
+            'Welcome! Have a look at the available commands:\n\n'
             + getCommands())
     }
 
@@ -36,17 +36,17 @@ function coinFlip() {
 
 class RandomController extends TelegramBaseController {
 
-    tossHandler($) {
-        $.sendMessage('Tossing a coin. Its ' + coinFlip() + '!')
+    flipHandler($) {
+        $.sendMessage('Flipping a coin. Its ' + coinFlip() + '!')
     }
 
     get routes() {
         return {
-            'tossCommand': 'tossHandler'
+            'flipCommand': 'flipHandler'
         }
     }
 }
 
 tg.router
     .when(new TextCommand('/start', 'startCommand'), new StartController())
-    .when(new TextCommand('/toss', 'tossCommand'), new RandomController())
+    .when(new TextCommand('/flip', 'flipCommand'), new RandomController())
